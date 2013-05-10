@@ -1,8 +1,12 @@
-// Core
+// =====
+// CORE
+// =====
 
 @import "../../../less/core/common.less";
 
-// Theme
+// =====
+// THEME
+// =====
 
 // Custom Icons & Fonts
 // ====================
@@ -10,6 +14,11 @@
 @import 'pictos.less';
 @import 'glyphicons.less';
 @import 'league-gothic.less';
+
+// Custom Logo
+// ===========
+
+@import 'logo.less';
 
 // RefTagger
 // =========
@@ -32,7 +41,7 @@
 @color-white: #fff;
 @color-black: #373839;
 // @color-accent: #f17354;  -OLD ACCENT COLOR-
-@color-accent: #3aa2dd;
+@color-accent: #F8D544;
 @color-body: #fdfdfd;
 @color-baseline: @color-accent;
 @color-logo: #3c3c3e;
@@ -56,8 +65,14 @@
 @color-jrhigh: #3a6f8f;
 @color-gradeschool: #dcac6c;
 @color-children: @color-gradeschool;
-// @color-children: #fedf6b;
 @color-allchurch: #f8a15c;
+
+// HTML Overrides
+// ==============
+
+
+// Custom Colors
+// =============
 
 .men {
   background-color: @color-men;
@@ -187,42 +202,161 @@
   #sans {
 
     .regular() {
-      font-family: "proxima-nova", 'Proxima Nova', "Helvetica Neue", Arial, Helvetica, sans-serif;
+      font-family: 'franklin-gothic-urw', 'Helvetica Neue', Arial, Helvetica, sans-serif;
       font-style: normal;
       font-weight: 400;
     }
 
     .bold() {
-      font-family: "proxima-nova", 'Proxima Nova', "Helvetica Neue", Arial, Helvetica, sans-serif;
+      font-family: 'franklin-gothic-urw', 'Helvetica Neue', Arial, Helvetica, sans-serif;
       font-style: normal;
       font-weight: 700;
     }
 
     .extrabold() {
-      font-family: "proxima-nova", 'Proxima Nova', "Helvetica Neue", Arial, Helvetica, sans-serif;
+      font-family: 'franklin-gothic-urw', 'Helvetica Neue', Arial, Helvetica, sans-serif;
       font-style: normal;
-      font-weight: 800;
+      font-weight: 900;
     }
   }
 
   #serif {
 
     .regular() {
-      font-family: "ff-tisa-web-pro", 'Adelle', Georgia, 'Times New Roman', Times, serif;
+      font-family: 'ff-meta-serif-web-pro', 'Adelle', Georgia, 'Times New Roman', Times, serif;
       font-style: normal;
       font-weight: 400;
     }
 
     .italic() {
-      font-family: "ff-tisa-web-pro", 'Adelle', Georgia, 'Times New Roman', Times, serif;
+      font-family: 'ff-meta-serif-web-pro', 'Adelle', Georgia, 'Times New Roman', Times, serif;
       font-style: italic;
       font-weight: 400;
     }
 
     .bold() {
-      font-family: "ff-tisa-web-pro", 'Adelle', Georgia, 'Times New Roman', Times, serif;
+      font-family: 'ff-meta-serif-web-pro', 'Adelle', Georgia, 'Times New Roman', Times, serif;
       font-style: normal;
       font-weight: 700;
+    }
+  }
+}
+
+// Style Overrides
+// ===============
+
+#side-content {
+  margin-top: 0;
+}
+
+.logo {
+  font-family: Logo;
+  font-weight: normal;
+  font-size: 100px;
+  font-style: normal;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+}
+
+.back-wrap {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 80%;
+  background-image: url('../img/backdrop.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-attachment: fixed;
+  z-index: -1;
+}
+
+.mask {
+  .mask-image('../img/texture.png');
+}
+
+// .pageid-13932 {
+
+//   & >.mast {
+//     background: fadeout(@color-white, 20%);
+
+//     .container {
+
+//       .row {
+
+//         .span12 {
+
+
+//           .logo {
+//             color: #3c3c3e;
+
+//             &:hover {
+//               color: @color-accent;
+//             }
+//           }
+
+//         }
+//       }
+//     }
+//   }
+// }
+
+.mast {
+  background: fadeout(@color-white, 20%);
+
+  .container {
+
+    .row {
+
+
+      .span12 {
+
+
+        .logo {
+          line-height: 90px;
+          position: relative;
+          top: -15px;
+          visibility: visible;
+          font-size: 200px;
+          width: 300px;
+        }
+
+        .main {
+          font-size: 20px;
+
+          li {
+
+            .dropdown-menu {
+              font-size: 16px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.main-container {
+  display: table;
+  height: 100%;
+  width: 100%;
+}
+
+.subnav {
+  background: none;
+
+  li {
+    #font > #serif > .regular;
+
+    a {
+      font-size: 14px;
+
+      &:hover {
+        color: @color-accent;
+      }
     }
   }
 }
@@ -235,13 +369,13 @@
     text-align: center;
     font-size: 26px * 1.3;
     line-height: 44px * 1.3;
-    margin: 0;
+    margin: 0 0 40px 0;
     padding: @base @base * 4;
 
     a {
       color: @color-gray-dark;
       padding-bottom: 0;
-      border-bottom: 1px dotted lighten(@color-gray-dark, 15%);
+      border-bottom: 3px solid lighten(@color-gray-dark, 50%);
 
       &:hover {
         color: @color-accent;
@@ -250,63 +384,64 @@
   }
 }
 
-.welcome {
-  background: @color-gray-dark;
-  padding: 0 0 @base * 5 0;
-
-  &.feature {
-    background: @color-gray-dark url('../img/banner/banner-feature.jpg') 50% 0% no-repeat;
-    padding: 100px 0;
-    margin-top: -100px;
-
-    h1 {
-      font-family: 'Wisdom', Georgia, Times, serif;
-      letter-spacing: -1px;
-      font-size: 96px;
-      color: @color-white;
-    }
-
-    h2 {
-      color: @color-accent;
-      position: relative;
-      top: 30px;
-    }
-  }
-
-  .intro {
-
-    &.big {
-      #font > #serif > .regular;
-      color: @color-body;
-      text-align: center;
-      font-size: 26px * 1.3;
-      line-height: 44px * 1.3;
-      margin: 0;
-      padding: 0 @base * 4 @base @base * 4;
-
-      a {
-        color: @color-body;
-        padding-bottom: 0;
-        border-bottom: 2px solid lighten(@color-gray-dark, 5%);
-
-        &:hover {
-          color: @color-accent;
-        }
-      }
-    }
-  }
-}
 
 .feature {
+  background: none;
   padding: 25px 0 45px 0;
-  background-color: lighten(@color-gray-light, 5%);
-  background-image:  url(../img/texture-overlay.png);
-  background-position: 0 0%;
-  background-repeat: repeat-x;
-  border-bottom: 1px solid lighten(@color-gray-light, 2%);
 
   .featured {
     padding: 0 0 @base * 4 0;
+  }
+}
+
+.info-box {
+  background: fadeout(@color-black, 20%);
+
+  h3 {
+    a {
+      color: @color-gray-dark;
+
+      &:hover {
+        color: @color-white;
+      }
+    }
+  }
+
+  p {
+    color: @color-white;
+    #font > #serif > .regular;
+    font-size: 16px;
+    margin-bottom: 0;
+    padding: 15px 10px 25px 10px;
+
+    a {
+      color: @color-gray-dark;
+
+      &:hover {
+        color: darken(@color-accent, 20%);
+      }
+    }
+  }
+
+  .logo,
+  .icon {
+    color: darken(@color-accent, 25%);
+    font-size: 200px;
+    line-height: 200px;
+    height: 100px;
+    margin: 40px 0 20px 0;
+    width: 100px;
+  }
+
+  .link-bar {
+    margin-bottom: 30px;
+
+    a {
+      &:hover {
+        background: @color-white;
+        color: @color-gray-dark;
+      }
+    }
   }
 }
 
@@ -558,3 +693,64 @@
     }
   }
 }
+
+// Carousel Customization
+// ======================
+
+.carousel {
+
+  .carousel-caption {
+    background: none !important;
+    display: table !important;
+    visibility: visible;
+    padding: 200px 200px 0 200px;
+    position: absolute;
+    right: @base * 4;
+    bottom: auto;
+    top: 0;
+    left: auto;
+    min-width: 300px;
+    text-align: center;
+
+    h3 {
+      background: fadeout(@color-accent, 15%);
+      #font > #serif > .regular;
+      font-size: 36px;
+      font-style: italic;
+      line-height: 1.8;
+      .box-shadow(1px 1px 0 rgba(0,0,0,0.1));
+      padding: 0 10px;
+      text-transform: none;
+      vertical-align: middle;
+    }
+
+    h4 {
+      background: @color-white;
+      color: @color-black;
+      display: inline;
+      margin-top: 40px;
+      padding: 10px;
+      position: relative;
+      text-transform: uppercase;
+      top: 20px;
+    }
+  }
+}
+
+
+// Footer Customization
+// ====================
+
+
+.footer {
+  margin-bottom: 0;
+  margin-top: -2px;
+
+  .baseline {
+
+    .churchdeploy {
+      margin-top: 10px;
+    }
+  }
+}
+
