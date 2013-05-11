@@ -41,7 +41,7 @@
 @color-white: #fff;
 @color-black: #373839;
 // @color-accent: #f17354;  -OLD ACCENT COLOR-
-@color-accent: #F8D544;
+@color-accent: #487EAD;
 @color-body: #fdfdfd;
 @color-baseline: @color-accent;
 @color-logo: #3c3c3e;
@@ -305,7 +305,7 @@
 // }
 
 .mast {
-  background: fadeout(@color-white, 20%);
+  background: fadeout(@color-white, 20%) url('../img/repeat/squairy_light.png') repeat;
 
   .container {
 
@@ -369,16 +369,17 @@
     text-align: center;
     font-size: 26px * 1.3;
     line-height: 44px * 1.3;
-    margin: 0 0 40px 0;
+    margin: 20px 0 60px 0;
     padding: @base @base * 4;
 
     a {
       color: @color-gray-dark;
       padding-bottom: 0;
-      border-bottom: 3px solid lighten(@color-gray-dark, 50%);
+      border-bottom: 3px solid darken(@color-white, 5%);
 
       &:hover {
         color: @color-accent;
+        border-bottom: 3px solid darken(@color-white, 15%);
       }
     }
   }
@@ -701,9 +702,10 @@
 
   .carousel-caption {
     background: none !important;
+    .box-shadow(none);
     display: table !important;
     visibility: visible;
-    padding: 200px 200px 0 200px;
+    padding: 170px 200px 0 200px;
     position: absolute;
     right: @base * 4;
     bottom: auto;
@@ -713,20 +715,21 @@
     text-align: center;
 
     h3 {
-      background: fadeout(@color-accent, 15%);
+      background: fadeout(@color-white, 15%);
+      color: @color-black;
       #font > #serif > .regular;
       font-size: 36px;
       font-style: italic;
       line-height: 1.8;
-      .box-shadow(1px 1px 0 rgba(0,0,0,0.1));
+      .box-shadow(none);
       padding: 0 10px;
       text-transform: none;
       vertical-align: middle;
     }
 
     h4 {
-      background: @color-white;
-      color: @color-black;
+      background: @color-accent;
+      color: @color-white;
       display: inline;
       margin-top: 40px;
       padding: 10px;

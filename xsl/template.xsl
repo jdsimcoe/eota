@@ -26,18 +26,7 @@
 		</xsl:otherwise>
 	</xsl:choose>
 	<link rel="dns-prefetch" href="{$root}" />
-	<!--
-	<xsl:for-each select="//tags-all-entries/entry[ not(parent/item) and not(hide-from-header = 'Yes') ]">
-		<link rel="prerender" href="{$root}/{@id}/{description/@handle}/" />
-		<link rel="prefetch" href="{$root}/{@id}/{description/@handle}/" />
-	</xsl:for-each>
-	<meta http-equiv="x-dns-prefetch-control" content="on" />
 
-	<xsl:for-each select="//tags-all-entries/entry[ not(parent/item) and not(hide-from-header = 'Yes') ]">
-		<link rel="prerender" href="{$root}/{@id}/{description/@handle}/" />
-		<link rel="prefetch" href="{$root}/{@id}/{description/@handle}/" />
-	</xsl:for-each>
-	-->
 	<script type="text/javascript" src="//use.typekit.net/opz2qoe.js"></script>
   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
   <script type="text/javascript" src="{$workspace}/themes/active/export/combined.js?v={$version}"></script>
@@ -63,103 +52,8 @@
       </div> <![endif]]]></xsl:comment>
     <xsl:call-template name="alerts" />
   </div>
-<!--   <div class="navbar main navbar-inverse visible-desktop">
-    <div class="navbar-inner">
-      <div class="container">
-        <div>
-          <form class="navbar-search pull-left" action="get">
-            <xsl:call-template name="form-search-action" />
-            <a>
-              <xsl:call-template name="url-search-home" />
-              <span class="icon">s</span>
-            </a>
-            <input name="keywords" type="text" class="search-query" placeholder="Search" autocomplete="off" onclick="this.select()" />
-          </form>
-          <ul class="nav pull-right">
-            <xsl:if test="$cookie-username">
-              <li class="admin-menu">
-                <a href="#" data-toggle="dropdown"><i class="glyphicon-wrench"></i></a>
-                <ul class="dropdown-menu">
-                  <li>
-                    <a href="/symphony/">Symphony</a>
-                  </li>
-                  <li>
-                    <a href="?debug">Debug</a>
-                  </li>
-                  <xsl:if test="not($pt1 = 'toolkit')">
-                    <li>
-                      <a>
-                        <xsl:attribute name="href">
-                          <xsl:choose>
-                            <xsl:when test="$pt1">
-                              <xsl:value-of select="concat($root, '/symphony/publish/tags/edit/', $pt1, '/')" />
-                            </xsl:when>
-                            <xsl:otherwise>
-                              <xsl:value-of select="concat($root, '/symphony/publish/tags/edit/',//tags-all-entries/entry[tag/@handle = 'home']/@id , '/')" />
-                            </xsl:otherwise>
-                          </xsl:choose>
-                        </xsl:attribute>
-                        <xsl:text> Edit Page</xsl:text>
-                      </a>
-                    </li>
-                  </xsl:if>
-                  <li>
-                    <a href="{$root}/symphony/logout/">Logout</a>
-                  </li>
-                </ul>
-              </li>
-            </xsl:if>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div> -->
-
-<!--   <xsl:if test="$cookie-username">
-    <ul class="nav">
-      <li class="admin-menu">
-        <a href="#" data-toggle="dropdown"><i class="glyphicon-wrench"></i></a>
-        <ul class="dropdown-menu">
-          <li>
-            <a href="/symphony/">Symphony</a>
-          </li>
-          <li>
-            <a href="?debug">Debug</a>
-          </li>
-          <xsl:if test="not($pt1 = 'toolkit')">
-            <li>
-              <a>
-                <xsl:attribute name="href">
-                  <xsl:choose>
-                    <xsl:when test="$pt1">
-                      <xsl:value-of select="concat($root, '/symphony/publish/tags/edit/', $pt1, '/')" />
-                    </xsl:when>
-                    <xsl:otherwise>
-                      <xsl:value-of select="concat($root, '/symphony/publish/tags/edit/',//tags-all-entries/entry[tag/@handle = 'home']/@id , '/')" />
-                    </xsl:otherwise>
-                  </xsl:choose>
-                </xsl:attribute>
-                <xsl:text> Edit Page</xsl:text>
-              </a>
-            </li>
-          </xsl:if>
-          <li>
-            <a href="{$root}/symphony/logout/">Logout</a>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </xsl:if> -->
 
   <div class="navbar mobile navbar-inverse hidden-desktop">
-<!--     <form class="navbar-search pull-left" action="get">
-      <xsl:call-template name="form-search-action" />
-      <a>
-        <xsl:call-template name="url-search-home" />
-        <span class="icon">s</span>
-      </a>
-      <input name="keywords" type="text" class="search-query" placeholder="Search" autocomplete="off" onclick="this.select()" />
-    </form> -->
     <div class="navbar-inner">
         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
           <span class="icon-bar"></span>
@@ -196,6 +90,57 @@
 
   <xsl:if test="not($pt1) or $pt1 = 43">
     <xsl:value-of select="normalize-space(//misc-all-entries/entry[name='tagline']/content)" disable-output-escaping="yes" />
+    <div class="container">
+      <div class="row">
+        <div class="span8 info-box">
+          <h3><a href="/">Recent Tweets</a></h3>
+          <div class="row">
+            <xsl:for-each select="//twitter-latest-entry/entry[position() &lt; 3]">
+              <div>
+                <xsl:attribute name="class">
+                  <xsl:text>span4 entry</xsl:text>
+                  <xsl:if test="position() = 1">
+                    <xsl:text> first</xsl:text>
+                  </xsl:if>
+                  <xsl:if test="position() = last()">
+                    <xsl:text> last</xsl:text>
+                  </xsl:if>
+                </xsl:attribute>
+                <xsl:value-of select="normalize-space(content)" disable-output-escaping="yes" />
+                <xsl:text>&#160;&#160;</xsl:text>
+                <strong>
+                  <xsl:call-template name="format-date">
+                    <xsl:with-param name="date" select="date/date/start/@iso" />
+                    <xsl:with-param name="format" select="'%d;'" />
+                  </xsl:call-template>
+                  <xsl:text>&#160;</xsl:text>
+                  <xsl:call-template name="format-date">
+                    <xsl:with-param name="date" select="date/date/start/@iso" />
+                    <xsl:with-param name="format" select="'%m-;'" />
+                  </xsl:call-template>
+                  <xsl:text>&#160;</xsl:text>
+                  <xsl:call-template name="format-date">
+                    <xsl:with-param name="date" select="date/date/start/@iso" />
+                    <xsl:with-param name="format" select="'%y+;'" />
+                  </xsl:call-template>
+                </strong>
+              </div>
+            </xsl:for-each>
+          </div>
+
+        </div>
+        <div class="span4 info-box">
+          <h3 class="center"><a href="/">Social</a></h3>
+          <div class="center">
+            <span class="icon mask">b</span>
+          </div>
+          <p>What drives EOTA is a firm belief in the Scriptures and the Gospel of Jesus Christ which reveals the need of this world to be reconciled to King Jesus.</p>
+          <div class="center link-bar">
+            <a href="/" class="link link-small">Read More</a>
+          </div>
+        </div>
+      </div>
+    </div>
   </xsl:if>
 
 </xsl:template>
