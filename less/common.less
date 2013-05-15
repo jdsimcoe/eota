@@ -703,7 +703,7 @@
   .carousel-caption {
     background: none !important;
     .box-shadow(none);
-    display: table !important;
+    display: block;
     visibility: visible;
     padding: 170px 200px 0 200px;
     position: absolute;
@@ -714,16 +714,27 @@
     min-width: 300px;
     text-align: center;
 
+    .link {
+      background: @color-accent;
+      font-size: 18px;
+      line-height: 20px;
+      padding: 10px;
+
+      &:hover {
+        background: @color-gray-dark;
+      }
+    }
+
     h3 {
       background: fadeout(@color-white, 15%);
       color: @color-black;
       #font > #serif > .regular;
       font-size: 36px;
-      font-style: italic;
       line-height: 1.8;
       .box-shadow(none);
       padding: 0 10px;
       text-transform: none;
+      text-shadow: none;
       vertical-align: middle;
     }
 
@@ -738,6 +749,13 @@
       top: 20px;
     }
   }
+}
+
+// Welcome Box
+// ===========
+
+.welcome {
+  margin: 40px 0;
 }
 
 

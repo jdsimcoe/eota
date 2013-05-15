@@ -90,57 +90,72 @@
 
   <xsl:if test="not($pt1) or $pt1 = 43">
     <xsl:value-of select="normalize-space(//misc-all-entries/entry[name='tagline']/content)" disable-output-escaping="yes" />
-    <div class="container">
-      <div class="row">
-        <div class="span8 info-box">
-          <h3><a href="/">Recent Tweets</a></h3>
-          <div class="row">
-            <xsl:for-each select="//twitter-latest-entry/entry[position() &lt; 3]">
-              <div>
-                <xsl:attribute name="class">
-                  <xsl:text>span4 entry</xsl:text>
-                  <xsl:if test="position() = 1">
-                    <xsl:text> first</xsl:text>
-                  </xsl:if>
-                  <xsl:if test="position() = last()">
-                    <xsl:text> last</xsl:text>
-                  </xsl:if>
-                </xsl:attribute>
-                <xsl:value-of select="normalize-space(content)" disable-output-escaping="yes" />
-                <xsl:text>&#160;&#160;</xsl:text>
-                <strong>
-                  <xsl:call-template name="format-date">
-                    <xsl:with-param name="date" select="date/date/start/@iso" />
-                    <xsl:with-param name="format" select="'%d;'" />
-                  </xsl:call-template>
-                  <xsl:text>&#160;</xsl:text>
-                  <xsl:call-template name="format-date">
-                    <xsl:with-param name="date" select="date/date/start/@iso" />
-                    <xsl:with-param name="format" select="'%m-;'" />
-                  </xsl:call-template>
-                  <xsl:text>&#160;</xsl:text>
-                  <xsl:call-template name="format-date">
-                    <xsl:with-param name="date" select="date/date/start/@iso" />
-                    <xsl:with-param name="format" select="'%y+;'" />
-                  </xsl:call-template>
-                </strong>
-              </div>
-            </xsl:for-each>
+    <div class="welcome">
+      <div class="container">
+        <div class="row">
+          <div class="span4 info-box">
+            <h3 class="center"><a href="/">About Jon Micah</a></h3>
+            <div class="center">
+              <img data-responsimage="jonmicahbio_small-517af915d481c.jpg" class="img-circle center" width="200px" height="200px" data-responsimage-anchor="5" src="/workspace/img/spacer.gif" />
+            </div>
+            <p>Jon Micah Sumrall is the lead singer of <a href="http://kutless.com/">Kutless</a> and the visionary behind EOTA. He has a passion for sharing Christ with an upcoming generation.</p>
+            <div class="center link-bar">
+              <a href="/" class="link link-small">Read More</a>
+            </div>
           </div>
-
-        </div>
-        <div class="span4 info-box">
-          <h3 class="center"><a href="/">Social</a></h3>
-          <div class="center">
-            <span class="icon mask">b</span>
+          <div class="span4 info-box">
+            <h3 class="center"><a href="/">Latest From Twitter</a></h3>
+            <div class="center">
+              <span class="icon mask">B</span>
+            </div>
+            <div class="row">
+              <xsl:for-each select="//twitter-latest-entry/entry[position() &lt; 2]">
+                <div>
+                  <xsl:attribute name="class">
+                    <xsl:text>span4 entry</xsl:text>
+                    <xsl:if test="position() = 1">
+                      <xsl:text> first</xsl:text>
+                    </xsl:if>
+                    <xsl:if test="position() = last()">
+                      <xsl:text> last</xsl:text>
+                    </xsl:if>
+                  </xsl:attribute>
+                  <xsl:value-of select="normalize-space(content)" disable-output-escaping="yes" />
+                  <xsl:text>&#160;&#160;</xsl:text>
+                  <strong>
+                    <xsl:call-template name="format-date">
+                      <xsl:with-param name="date" select="date/date/start/@iso" />
+                      <xsl:with-param name="format" select="'%d;'" />
+                    </xsl:call-template>
+                    <xsl:text>&#160;</xsl:text>
+                    <xsl:call-template name="format-date">
+                      <xsl:with-param name="date" select="date/date/start/@iso" />
+                      <xsl:with-param name="format" select="'%m-;'" />
+                    </xsl:call-template>
+                    <xsl:text>&#160;</xsl:text>
+                    <xsl:call-template name="format-date">
+                      <xsl:with-param name="date" select="date/date/start/@iso" />
+                      <xsl:with-param name="format" select="'%y+;'" />
+                    </xsl:call-template>
+                  </strong>
+                </div>
+              </xsl:for-each>
+            </div>
           </div>
-          <p>What drives EOTA is a firm belief in the Scriptures and the Gospel of Jesus Christ which reveals the need of this world to be reconciled to King Jesus.</p>
-          <div class="center link-bar">
-            <a href="/" class="link link-small">Read More</a>
+          <div class="span4 info-box">
+            <h3 class="center"><a href="/">Social</a></h3>
+            <div class="center">
+              <span class="logo mask">E</span>
+            </div>
+            <p>What drives EOTA is a firm belief in the Scriptures and the Gospel of Jesus Christ which reveals the need of this world to be reconciled to King Jesus.</p>
+            <div class="center link-bar">
+              <a href="/" class="link link-small">Read More</a>
+            </div>
           </div>
         </div>
       </div>
     </div>
+
   </xsl:if>
 
 </xsl:template>
