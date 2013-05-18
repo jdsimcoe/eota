@@ -278,39 +278,14 @@
   .mask-image('../img/texture.png');
 }
 
-// .pageid-13932 {
-
-//   & >.mast {
-//     background: fadeout(@color-white, 20%);
-
-//     .container {
-
-//       .row {
-
-//         .span12 {
-
-
-//           .logo {
-//             color: #3c3c3e;
-
-//             &:hover {
-//               color: @color-accent;
-//             }
-//           }
-
-//         }
-//       }
-//     }
-//   }
-// }
-
 .mast {
   background: fadeout(@color-white, 20%) url('../img/repeat/squairy_light.png') repeat;
 
   .container {
 
     .row {
-
+      margin-bottom: 0;
+      margin-top: 0;
 
       .span12 {
 
@@ -396,7 +371,7 @@
 }
 
 .info-box {
-  background: fadeout(@color-black, 20%);
+  background: darken(@color-white, 30%);
 
   h3 {
     a {
@@ -443,6 +418,10 @@
         color: @color-gray-dark;
       }
     }
+  }
+
+  .tweet {
+    color: @color-white;
   }
 }
 
@@ -771,6 +750,130 @@
 
     .churchdeploy {
       margin-top: 10px;
+    }
+  }
+}
+
+// Carousel Customization
+// ======================
+
+.carousel {
+
+  .item {
+
+    .row {
+      height: 600px;
+    }
+
+    img {
+      height: 100%;
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+
+  .carousel {
+
+    .item {
+
+      img {
+        width: 1200px !important;
+      }
+    }
+  }
+}
+
+@media (max-width: 1500px) {
+
+  .carousel {
+
+    .item {
+
+      img {
+        width: 1500px !important;
+      }
+    }
+  }
+}
+
+@media (max-width: 1700px) {
+
+  .carousel {
+
+    .item {
+
+      img {
+        width: 1700px !important;
+      }
+    }
+  }
+}
+
+@media (max-width: 2000px) {
+
+  .carousel {
+
+    .item {
+
+      img {
+        width: 2000px !important;
+      }
+    }
+  }
+}
+
+@media (max-width: 979px) { // tablets and below
+
+  .carousel {
+
+    .item {
+
+      img {
+        width: 979px !important;
+      }
+    }
+  }
+}
+
+@media (max-width: 640px) { // iphone 5 landscape
+
+  .carousel {
+
+    .item {
+
+      img {
+        width: 640px !important;
+        height: 338px !important;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) { // iphone
+
+  .carousel {
+
+    .item {
+
+      img {
+        width: 480px !important;
+        height: 248px !important;
+      }
+    }
+  }
+}
+
+@media (max-width: 320px) { // iphone portrait
+
+  .carousel {
+
+    .item {
+
+      img {
+        width: 320px !important;
+        height: 158px !important;
+      }
     }
   }
 }
