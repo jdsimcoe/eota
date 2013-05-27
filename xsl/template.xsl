@@ -261,9 +261,9 @@
 				<div class="row">
 					<div class="span12 center">
 						<div class="facebook">
-							<a href="https://www.facebook.com/pages/Athey-Creek-Christian-Fellowship/138279749547289">Visit us on Facebook</a>
+							<a href="http://www.facebook.com/EOTAMinistries">Visit us on Facebook</a>
               <xsl:text> | </xsl:text>
-              <a href="#">Follow us on Twitter</a>
+              <a href="http://twitter.com/eotaministries">Follow us on Twitter</a>
 						</div>
 
 						<div class="copyright">
