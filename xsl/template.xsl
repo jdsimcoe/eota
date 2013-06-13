@@ -9,7 +9,7 @@
 	indent="no"
 	/>
 
-<xsl:variable name="version">1.0.7</xsl:variable>
+<xsl:variable name="version">1.0.8</xsl:variable>
 
 <xsl:template name="template-head">
   <link rel="stylesheet" href="{$workspace}/themes/active/css/common.css?v={$version}" />
