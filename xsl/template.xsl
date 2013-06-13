@@ -9,7 +9,7 @@
 	indent="no"
 	/>
 
-<xsl:variable name="version">1.0.6</xsl:variable>
+<xsl:variable name="version">1.0.7</xsl:variable>
 
 <xsl:template name="template-head">
   <link rel="stylesheet" href="{$workspace}/themes/active/css/common.css?v={$version}" />
@@ -100,7 +100,7 @@
             </div>
             <p>Jon Micah Sumrall is the lead singer of <a href="http://kutless.com/">Kutless</a> and the visionary behind EOTA. He has a passion for sharing Christ with an upcoming generation.</p>
             <div class="center link-bar">
-              <a href="/" class="link link-small">Read More &#8594;</a>
+              <a href="{$root}/13925/about-jon-micah/" class="link link-small">Read More &#8594;</a>
             </div>
           </div>
           <div class="span4 info-box">
